@@ -3,6 +3,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Program
     {
         public static void Main()

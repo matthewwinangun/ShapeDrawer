@@ -7,8 +7,16 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Deletes selected shapes if right clicked outside of gui window. Deletes all shapes if button is right clicked. Deletes all shapes that are left clicked on.
+    /// </summary>
     public class DeleteTool : Command
     {
+
+        /// <summary>
+        /// Executes the delete command
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
             if (SplashKit.MouseClicked(MouseButton.LeftButton) && SplashKit.MouseX() > 200)

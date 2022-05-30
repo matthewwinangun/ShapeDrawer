@@ -3,11 +3,11 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Contains the GUI class and loads all the buttons and commands into it. Also contains the main drawing loop and creating the program window.
+        /// </summary>
         public static void Main()
         {
             DrawShape _drawshapeCommand = new DrawShape();
@@ -35,7 +35,7 @@ namespace ShapeDrawer
 
             Gui gui = new Gui(_drawTool, _rectangle, _blue);
 
-            //Adding buttons and commands
+            //Adding buttons and commands to the gui class
             gui.AddButton(_drawTool);
             gui.AddButton(_selectTool);
             gui.AddButton(_deleteTool);
@@ -52,11 +52,7 @@ namespace ShapeDrawer
             gui.AddButton(_green);
             gui.AddButton(_yellow);
 
-            // set defaults
-            //gui.SetDefaults(_drawTool, _rectangle, _blue);
-
-
-
+            //Main loop
             new Window("Shape Drawer", 1200, 600);
             do
             {

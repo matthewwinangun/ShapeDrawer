@@ -7,6 +7,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Copies all selected shapes and moves them to a selected position relative to their original position.
+    /// </summary>
     public class CopyTool : Command
     {
         private double _originX;
@@ -16,6 +19,10 @@ namespace ShapeDrawer
         private bool _clickdown = true;
         private Line _line = new Line();
 
+        /// <summary>
+        /// Executes the copy command
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
             //setting origin

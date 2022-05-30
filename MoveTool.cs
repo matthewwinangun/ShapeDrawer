@@ -7,6 +7,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    ///  Moves all selected shapes to a selected position relative to their original position.
+    /// </summary>
     public class MoveTool : Command
     {
         private double _originX;
@@ -15,7 +18,11 @@ namespace ShapeDrawer
         private double _y;
         private bool _clickdown = true;
         private Line _line = new Line();
-
+        
+        /// <summary>
+        /// Executes the move Shape command. 
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
             //setting origin

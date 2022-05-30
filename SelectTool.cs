@@ -7,36 +7,17 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Selects and deselects shapes that are left clicked on. Selects all shapes when button is right clicked. Deselect all shapes when right clicked outside of gui window.
+    /// </summary>
     public class SelectTool : Command
     {
-        //private int _originX;
-        //private int _originY;
-
+        /// <summary>
+        /// Executes the Select command. 
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
-            //if (SplashKit.MouseUp(MouseButton.LeftButton))
-            //{
-            //    _originX = (int)SplashKit.MouseX();
-            //    _originY = (int)SplashKit.MouseY();
-            //}
-
-            //if (SplashKit.MouseDown(MouseButton.LeftButton))
-            //{
-            //    SplashKit.DrawRectangle(Color.Black, _originX, _originY, SplashKit.MouseX() - _originX, SplashKit.MouseY() - _originY);          
-                               
-            //    //foreach(Shape shape in gui.Shapes)
-            //    //{
-            //    //    if (shape.IsAt())
-            //    //    {
-
-            //    //    }
-            //    //}
-
-            //    //gui.SelectShapesAt(SplashKit.MousePosition());
-            //}
-
-
-
             if (SplashKit.MouseClicked(MouseButton.LeftButton) && SplashKit.MouseX() > 200)
             {
                 foreach (Shape s in gui.Shapes)
@@ -48,11 +29,19 @@ namespace ShapeDrawer
                 }
             }
 
-            if (SplashKit.MouseClicked(MouseButton.RightButton) && SplashKit.MouseX() < 200)
+            if (SplashKit.MouseClicked(MouseButton.RightButton) && SplashKit.MouseX() > 200)
             {
                 foreach (Shape shape in gui.Shapes.ToList())
                 {
                     shape.Selected = false;
+                }
+            }
+
+            if (SplashKit.MouseClicked(MouseButton.RightButton) && SplashKit.MouseX() < 200)
+            {
+                foreach (Shape shape in gui.Shapes.ToList())
+                {
+                    shape.Selected = true;
                 }
             }
         }

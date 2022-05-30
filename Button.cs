@@ -7,6 +7,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Contains basic button information such as position, whether selected, text, colour, shape and commands
+    /// </summary>
     public class Button
     {
         private bool _selected = false;
@@ -17,26 +20,15 @@ namespace ShapeDrawer
         private Color _color = Color.Gray;
         private Gui.ShapeType _selectedShape = new Gui.ShapeType();
 
-
-        public bool Selected 
-        {
-            get { return _selected; } 
-            set { _selected = value; }
-        }
-        public Color SetColor
-        {
-            get { return _color; }
-        }
-        public Gui.ShapeType ShapeType
-        {
-            get { return _selectedShape; }
-        }
-
-        public Command Command
-        {
-            get { return _command; }
-        }
-
+        /// <summary>
+        /// Creates button based on given inputs
+        /// </summary>
+        /// <param name="command">Command that the button is linked to</param>
+        /// <param name="color">Color that the button is linked to</param>
+        /// <param name="shape">Shape that the button is linked to</param>
+        /// <param name="x">X position of the button</param>
+        /// <param name="y">Y position of the button</param>
+        /// <param name="text">The text that appears on the button</param>
         public Button(Command command, Color color, Gui.ShapeType shape, int x, int y, string text)
         {
             _command = command;
@@ -51,8 +43,28 @@ namespace ShapeDrawer
         public Button(Color color, int x, int y, string text) : this(null, color, Gui.ShapeType.None, x, y, text) { }
         public Button(Gui.ShapeType shape, int x, int y, string text) : this(null, Color.Gray, shape, x, y, text) { }
 
+        public bool Selected
+        {
+            get { return _selected; }
+            set { _selected = value; }
+        }
+        public Color SetColor
+        {
+            get { return _color; }
+        }
+        public Gui.ShapeType ShapeType
+        {
+            get { return _selectedShape; }
+        }
+        public Command Command
+        {
+            get { return _command; }
+        }
 
-
+        /// <summary>
+        /// Checks whether mouse position is on the button
+        /// </summary>
+        /// <returns>A boolean that represents if the mouse is on the button</returns>
         public bool Check()
         {
             if (SplashKit.MouseX() >= _x && SplashKit.MouseX() <= _x + 100 && SplashKit.MouseY() > _y && SplashKit.MouseY() <= _y + 50)
@@ -66,9 +78,11 @@ namespace ShapeDrawer
             }
         }
 
+        /// <summary>
+        /// Draws the button based on mouse position and whether selected
+        /// </summary>
         public void Draw()
         {
-
             if (Selected)
             {
                 SplashKit.FillRectangle(Color.BrightGreen, _x, _y, 100, 50);

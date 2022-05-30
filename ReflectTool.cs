@@ -7,6 +7,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Reflects all selected shapes along a drawn line. (Does not apply Rotations to rectangles)
+    /// </summary>
     public class ReflectTool : Command
     {
         private double _originX;
@@ -14,6 +17,10 @@ namespace ShapeDrawer
         private bool _clickdown = true;
         private Line _line = new Line();
 
+        /// <summary>
+        /// Executes the reflect command. 
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
             //setting origin
@@ -77,6 +84,15 @@ namespace ShapeDrawer
             }
         }
 
+        /// <summary>
+        /// Mirrors the given point p along a line defined by the 2 following points.
+        /// </summary>
+        /// <param name="p">The point which is to be reflected</param>
+        /// <param name="x0">The X coordinate of the 1st point in the line</param>
+        /// <param name="y0">The Y coordinate of the 1st point in the line</param>
+        /// <param name="x1">The X coordinate of the 2nd point in the line</param>
+        /// <param name="y1">The Y coordinate of the 2nd point in the line</param>
+        /// <returns></returns>
         private Point2D mirror(Point2D p, double x0, double y0, double x1, double y1)
         {
             double dx, dy, a, b;

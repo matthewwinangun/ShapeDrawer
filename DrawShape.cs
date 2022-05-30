@@ -7,6 +7,9 @@ using SplashKitSDK;
 
 namespace ShapeDrawer
 {
+    /// <summary>
+    /// Draws Shapes by checking the selected shape + colour from gui, and the mouse position to create a new shape and draw
+    /// </summary>
     public class DrawShape : Command
     {
         private double _originX;
@@ -18,6 +21,10 @@ namespace ShapeDrawer
 
         private Shape _preshape;
 
+        /// <summary>
+        /// Executes the Draw Shape command. 
+        /// </summary>
+        /// <param name="gui"> The GUI input for the command</param>
         public void Execute(Gui gui)
         {
             //setting origin
